@@ -156,6 +156,9 @@ app.post('/delete/:id', requireLogin, (req, res) => {
     res.redirect('/');
 });
 
-app.listen(9000, '0.0.0.0', () => {
-    console.log('Server is running on http://0.0.0.0:9000');
+// app.js の一番下の修正
+const PORT = process.env.PORT || 9000; // 公開サーバーのポート番号、なければ9000を使う
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
